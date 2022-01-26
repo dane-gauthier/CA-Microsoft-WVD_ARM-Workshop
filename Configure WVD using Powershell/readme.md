@@ -13,7 +13,7 @@ In this step, you will:
 - Install the **Windows Virtual Desktop module** (if still needed)
 
 ```powershell
-Install-Module -Name Az.DesktopVirtualization
+a
 ```
 
 - Import the **Windows Virtual Desktop module**
@@ -40,13 +40,13 @@ Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 - Get a list of **Workspaces** in your Resource Group:
 
 ```powershell
-Get-AzWvdWorkspace -ResourceGroupName "wvd-workshop-sessionhosts-rg"
+Get-AzWvdWorkspace -ResourceGroupName "Lab1HPRG"
 ```
 
 - Get details on a **specific Workspace**:
 
 ```powershell
-$myArmWS = Get-AzWvdWorkspace -ResourceGroupName "wvd-workshop-sessionhosts-rg" -Name "wvd-workshop-win10-arm-ws"
+$myArmWS = Get-AzWvdWorkspace -ResourceGroupName "Lab1HPRG" -Name "wvd-workshop-win10-arm-ws"
 $myArmWS | Format-List *
 ```
 
@@ -66,8 +66,7 @@ $myArmHP | Format-List *
 - Get a list of **Application Groups**:
 
 ```powershell
-    Get-AzWvdApplicationGroup -ResourceGroupName "wvd-workshop-sessionhosts-rg"
-```
+    Get-AzWvdApplicationGroup -ResourceGroupName "Lab1HPRG"
 
 - Get details on a **specific Application Group**:
 
@@ -79,13 +78,13 @@ $myArmDAG | Format-List *
 - Get a list of **Sessionhosts**
 
 ```powershell
-Get-AzWvdSessionHost -ResourceGroupName "wvd-workshop-sessionhosts-rg" -HostPoolName $myArmHP.Name
+Get-AzWvdSessionHost -ResourceGroupName "Lab1HPRG" -HostPoolName $myArmHP.Name
 ```
 
 - Get details on a **specific Sessionhost**
 
 ```powershell
-$myArmSH = (Get-AzWvdSessionHost -ResourceGroupName "wvd-workshop-sessionhosts-rg" -HostPoolName $myArmHP.Name)[0]
+$myArmSH = (Get-AzWvdSessionHost -ResourceGroupName "Lab1HPRG" -HostPoolName $myArmHP.Name)[0]
 $myArmSH | Format-List *
 ```
 
