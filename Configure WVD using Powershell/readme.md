@@ -53,13 +53,13 @@ $myArmWS | Format-List *
 - Get a list of **Hostpools**:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName "wvd-workshop-sessionhosts-rg"
+Get-AzWvdHostPool -ResourceGroupName "Lab1HPRG"
 ```
 
 - Get details on a **specific Hostpool**:
 
 ```powershell
-$myArmHP = Get-AzWvdHostPool -ResourceGroupName "wvd-workshop-sessionhosts-rg" -Name "wvd-workshop-win10-arm-hp"
+$myArmHP = Get-AzWvdHostPool -ResourceGroupName "Lab1HPRG" -Name "Lab1HP"
 $myArmHP | Format-List *
 ```
 
@@ -72,7 +72,7 @@ $myArmHP | Format-List *
 - Get details on a **specific Application Group**:
 
 ```powershell
-$myArmDAG = Get-AzWvdApplicationGroup -ResourceGroupName "wvd-workshop-sessionhosts-rg" -Name "wvd-workshop-win10-arm-hp-DAG"
+$myArmDAG = Get-AzWvdApplicationGroup -ResourceGroupName "Lab1HPRG" -Name "PortalLabRemoteApp"
 $myArmDAG | Format-List *
 ```
 
@@ -189,3 +189,8 @@ Remove-AzWvdUserSession -ResourceGroupName "wvd-workshop-sessionhosts-rg" -HostP
             x[0].innerHTML = "Microsoft & Cloud-Architect WVD Workshop"
         }, 250);
 </script>
+
+
+Get-AzResourceGroup |
+  Sort Location,ResourceGroupName |
+  Format-Table -GroupBy Location ResourceGroupName,ProvisioningState,Tags
